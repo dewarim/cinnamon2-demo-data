@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="reference.xsd" id="A1">
+    <title>Title of the reference</title>
+    <refbody>
+        <p>Text</p>
+    </refbody>
+</reference>

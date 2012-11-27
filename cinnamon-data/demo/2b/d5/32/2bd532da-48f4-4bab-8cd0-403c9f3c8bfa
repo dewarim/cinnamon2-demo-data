@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This file is part of the DITA Open Toolkit project hosted on 
+     Sourceforge.net. See the accompanying license.txt file for 
+     applicable licenses.--><!-- (c) Copyright IBM Corp. 2004, 2006 All Rights Reserved. --><!-- revise @PLACEHOLDER@ names and values--><!-- 
+  | basedir can be specified to other places base on your need.
+  |
+  | Note: input, output, and temp directories will base on the basedir if 
+  | they are relative paths.
+  * --><!-- This document was created with Syntext Serna Free. -->
+<project name="cinnamon_pdf" default="Cinnamon2pdf" basedir=".">
+<!-- dita.dir should point to the toolkit's root directory -->  <property name="dita.dir" value="C:${file.separator}DITA-OT1.5.3"/>
+  <property name="document.locale" value="en_US"/>
+<!-- if file is a relative file name, the file name will be resolved 
+       relative to the importing file -->  <import file="${dita.dir}${file.separator}integrator.xml"/>
+  <target name="Cinnamon2pdf" depends="integrate">
+    <ant antfile="${dita.dir}${file.separator}build.xml" target="init">
+<!-- please refer to the toolkit's document for supported parameters, and 
+           specify them base on your needs -->      <property name="args.input" value="c:${file.separator}pub${file.separator}cinnamon.ditamap"/>
+      <property name="output.dir" value="c:${file.separator}pub"/>
+      <property name="transtype" value="pdf"/>
+      <property name="clean.temp" value="no"/>
+    </ant>
+  </target>
+</project>

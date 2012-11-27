@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This document was created with Syntext Serna Free. -->
+<task xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="task.xsd" id="A1" xml:lang="en-US">
+<title>Installing DITA Open Toolkit</title>
+<taskbody>
+<prereq>
+<p>The following requirements must be met to install DITA Open Toolkit:</p>
+<ul>
+<li>Java 6 must be installed. Only the 32-Bit-Version of Java 6 is supported by DITA Open Toolkit.</li>
+<li>An environment variable <codeph>JAVA_HOME</codeph> must exist, containing the path to the root directory of the Java version used.</li>
+</ul>
+<simpletable>
+<strow conref="CinnamonWarnings.dita#warnings/system_environment_variables"/>
+</simpletable>
+</prereq>
+<steps>
+<step>
+<cmd>Unpack the file <filepath>DITA-OT1.5.4.zip</filepath>.</cmd>
+<stepresult>In the file system, there is now a folder named <filepath>DITA-OT1.5.4</filepath>, containing the DITA Open Toolkit.</stepresult>
+</step>
+<step>
+<cmd>Move the folder <filepath>DITA-OT1.5.4</filepath> to the desired location in the file system.</cmd>
+<stepxmp>Example: <filepath>C:\DITA-OT1.5.4</filepath>. The following environment variable examples relate to that path. If you choose a different path, adapt the environment variables accordingly.</stepxmp>
+</step>
+<step>
+<cmd>Create a system environment variable named <codeph>ANT_HOME</codeph>, containing the path of the ANT root directory.</cmd>
+<stepxmp>Example: <filepath>C:\DITA-OT1.5.4\tools\ant</filepath>
+</stepxmp>
+</step>
+<step>
+<cmd>Create a system environment variable named <codeph>ANT_OPTS</codeph> with the following content: <codeph>-Xmx800m -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl</codeph>
+</cmd>
+</step>
+<step>
+<cmd>Create a system environment variable named <codeph>CLASSPATH</codeph>containing the path of various required directories and <codeph>jar</codeph> files. Use the paths from the example, adapted accordingly, if DITA Open Toolkit is in a different location. If the environment variable <codeph>CLASSPATH</codeph> already exists, append the value to the existing value, separated by a semicolon.</cmd>
+<stepxmp>Example: <filepath>.;C:\DITA-OT1.5.4\lib\saxon\saxon9-xom.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-xpath.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-xqj.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-s9api.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-sql.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-dom4j.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-jdom.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-dom.jar;C:\DITA-OT1.5.4\lib;C:\DITA-OT1.5.4\lib\dost.jar;C:\DITA-OT1.5.4\lib\resolver.jar;C:\DITA-OT1.5.4\lib\icu4j.jar;</filepath>
+</stepxmp>
+</step>
+<step>
+<cmd>Create a system environment variable named <codeph>DITA_DIR</codeph>containing the path of the DITA root directory.</cmd>
+<stepxmp>Example: <filepath>C:\DITA-OT1.5.4</filepath>.
+</stepxmp>
+</step>
+<step>
+<cmd>To the environment variable <codeph>PATH</codeph>, append the following value, separated by a semicolon: <filepath>%JAVA_HOME%\bin;C:\DITA-OT1.5.4\tools\ant\bin</filepath>.</cmd>
+</step>
+</steps>
+</taskbody>
+</task>

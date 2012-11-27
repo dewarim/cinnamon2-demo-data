@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This document was created with Syntext Serna Free. -->
+<reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="reference.xsd" id="warnings" xml:lang="en-US">
+<title>Warnings</title>
+<refbody>
+<section>
+<simpletable relcolwidth="">
+<strow id="system_environment_variables">
+<stentry>
+<p>
+<image href="warning.60169387.png" width="100" height="88"/>
+</p>
+</stentry>
+<stentry>
+<p>Changing the system environment variables in a false way can compromise the stability or function of some or all applications.</p>
+<p>Please make sure that existing entries are not damaged or deleted.</p>
+</stentry>
+</strow>
+</simpletable>
+</section>
+</refbody>
+</reference>

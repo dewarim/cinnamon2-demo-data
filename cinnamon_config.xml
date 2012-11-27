@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cinnamon_config>
+  <encryptPasswords>true</encryptPasswords>
+  <passwordRounds>10</passwordRounds>
+  <startIndexServer>true</startIndexServer>
+  <startWorkflowServer>false</startWorkflowServer>
+  <log_verbosity>OFF</log_verbosity>
+ 
+  <system_root>/home/cinnamon/cinnamon-system/</system_root>
+  <data_root>/home/cinnamon/cinnamon-data/</data_root>
+  
+  <!-- If you set the persistence_unit to "cinnamon_test", 
+	the server will drop the existing database and create a new one.
+	You should then use the Cinnamon API function "initializeDatabase" -->
+
+  <mail>
+	<from>"CinnamonServer" &lt;cinnamon@cinnamon.invalid&gt;</from>
+        <smtp-host>smtp.1und1.de</smtp-host>
+        <user>xxx</user>
+        <password>xxxx</password>
+  </mail>
+
+  <system-administrator>ingo.wiarda@horner-project.eu</system-administrator>
+  <server-url>http://172.16.13.135:8080/cinnamon/cinnamon</server-url>
+
+  <repositories>
+        <repository>
+         <name>demo</name>
+         <persistence_unit>cinnamon</persistence_unit>
+         <security><transferAssetsAllowed>true</transferAssetsAllowed>
+           <deleteUserAllowed>true</deleteUserAllowed>
+           </security>
+         <sessionExpirationTime>22800000</sessionExpirationTime>
+         <apiClasses>
+                <apiClass>server.CmdInterpreter</apiClass>
+                <apiClass>server.extension.LifeCycleApi</apiClass>
+                <apiClass>server.extension.Translation</apiClass>
+        </apiClasses>
+        <categories>
+          <category>demo</category>
+          <category>dita</category>
+        </categories>
+        </repository>
+
+  </repositories>
+	
+<!-- Postgres: -->
+
+  <db_type>postgresql</db_type>
+
+  <jdbc_protocol>postgresql</jdbc_protocol>
+  <jdbc_driver>org.postgresql.Driver</jdbc_driver>
+
+  <sql_host>127.0.0.1</sql_host>
+  <sql_user>cinnamon</sql_user>
+  <sql_pwd>cinnamon</sql_pwd>
+
+<!-- MySQL -->
+<!--
+ <jdbc_protocol>mysql</jdbc_protocol>
+ <jdbc_driver>com.mysql.jdbc.Driver</jdbc_driver>
+ <db_type>mysql</db_type>
+-->
+
+ <logback_configuration_path>/home/cinnamon/logback.xml</logback_configuration_path>
+ <use_session_logging>true</use_session_logging>
+
+  <workflow_server_username>WorkflowServer</workflow_server_username>
+  
+</cinnamon_config>

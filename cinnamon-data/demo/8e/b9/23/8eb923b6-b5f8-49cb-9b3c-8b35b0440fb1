@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<appConfig version="1.0" name="dita">
+  <dependencies>
+    <deepDependencies>
+      <!-- <xPath>//*[string(name(self::*))!='xref' and string(name(self::*))!='link']/@href</xPath>-->
+      <xPath allowAnchors="false">//*/@href</xPath>
+      <xPath allowAnchors="true">//*/@conref</xPath>
+    </deepDependencies>
+  </dependencies>
+  <outboundMapping>
+  </outboundMapping>
+</appConfig>

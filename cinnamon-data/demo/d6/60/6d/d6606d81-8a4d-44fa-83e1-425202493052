@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This document was created with Syntext Serna Free. -->
+<task xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="task.xsd" id="A1" xml:lang="en-US">
+<title>Installing Cinnamon Desktop Client</title>
+<taskbody>
+<prereq>
+<p>The following requirements must be met to install Cinnamon Desktop Client:</p>
+<ul>
+<li>A suitable version of Microsoft Windows must be installed. Windows XP, Windows Vista and Windows 7, and the server operating systems Windows Server 2003 and Windows Server 2008 are supported.</li>
+<li>Microsoft .net 4.0 must be installed.</li>
+<li>If you want to edit XML data (like DITA), an XML editor must be installed. Generally, any XML editor is suitable<fn>It is also possible to use an ASCII editor like Notepad, but this is very inconvenient, because no validation is performed.</fn>, but it is preferrable to use an XML editor containing style sheets for the data model used (for example, DITA), enabling clear visualisation of the data. </li>
+</ul>
+</prereq>
+<steps>
+<step>
+<cmd>Unpack the file <filepath>Cinnamon-Client.zip</filepath>.</cmd>
+<stepresult>In the file system, there is now a folder named <filepath>Cinnamon-Client</filepath>, containing all required client files.</stepresult>
+</step>
+<step>
+<cmd>Move the folder <filepath>Cinnamon-Client</filepath> to the desired location in the file system.</cmd>
+<stepxmp>Example: <filepath>C:\Program Files\Cinnamon-Client</filepath>
+</stepxmp>
+</step>
+<step>
+<cmd>Edit the file <filepath>Cinnamon-Client\Config\CinnamonDesktopClient.custom.config.xml</filepath>, using an XML or ASCII editor.</cmd>
+</step>
+<step>
+<cmd>Navigate to the element <codeph>&lt;global_settings&gt;</codeph> at the end of the file, and look for the element <codeph>&lt;local_root_path&gt;</codeph>.</cmd>
+<substeps>
+<substep>
+<cmd>If the attribute <codeph>type</codeph> has the value <codeph>mydocuments</codeph>, the content of the element <codeph>&lt;local_root_path&gt;</codeph> defines the relative path inside the folder <i>My documents</i> in the client file system. Inside this folder, create the subfolder structure as defined, if it does not already exist. Create a folder named <codeph>checkout</codeph> inside this folder.</cmd>
+</substep>
+<substep>
+<cmd>If the Attribute <codeph>type</codeph> has the value <codeph>absolute</codeph> or is missing, the content of the element <codeph>&lt;local_root_path&gt;</codeph> defines the absolute path in the client file system. Create the specified folder, if it does not already exist. Create a folder named &lt;g4&gt;checkout&lt;/g4&gt; inside this folder.</cmd>
+</substep>
+</substeps>
+</step>
+<step>
+<cmd>Navigate to the element <codeph>&lt;servers&gt;</codeph> at the end of the file.</cmd>
+</step>
+<step>
+<cmd>For each server the client needs to access, add an element<codeph>&lt;server&gt;</codeph> with the server's URL as a child of the element <codeph>&lt;servers&gt;</codeph> in the configuration file. Ask your system administrator for the server's URL.</cmd>
+<stepxmp>Example: <codeph>&lt;server name="foo"&gt;http://bar:8080/cinnamon/cinnamon&lt;/server&gt;</codeph>
+</stepxmp>
+</step>
+<step>
+<cmd>If the server provides SSL encryption and a certificate, install the certificate in Windows as  <i>Trusted Root Certification Authority</i>.</cmd>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="InstallingDITAOpenToolkit.1320964698.dita">
+<desc>For transformation of DITA bookmaps in various target formats, you must install DITA Open Toolkit.</desc>
+</link>
+</related-links>
+</task>

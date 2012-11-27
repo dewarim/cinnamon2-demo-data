@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<task xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsa4="http://dita.oasis-open.org/architecture/2005/" xsi:noNamespaceSchemaLocation="task.xsd" id="A1" xml:lang="de-DE">
+  <title>Installieren des DITA Open Toolkit</title>
+  <taskbody>
+    <prereq>
+      <p>Die folgenden Voraussetzungen müssen erfüllt sein, um das DITA Open Toolkit zu installieren:</p>
+      <ul>
+        <li>Es muss Java 6 installiert sein. Nur die 32-Bit-Version von Java 6 wird vom DITA Open Toolkit unterstützt.</li>
+        <li>Es muss eine Umgebungsvariable <codeph>JAVA_HOME</codeph> existieren, deren Inhalt der Pfad zu dem Wurzelverzeichnis der zu verwendenden Java-Version ist.</li>
+      </ul>
+      <simpletable>
+        <strow conref="CinnamonWarnings.dita#warnings/system_environment_variables"/>
+      </simpletable>
+    </prereq>
+    <steps>
+      <step>
+        <cmd>Entpacken Sie die Datei <filepath>DITA-OT1.5.4.zip</filepath>.</cmd>
+        <stepresult>Im Dateisystem befindet sich nun ein Ordner mit dem Namen <filepath>DITA-OT1.5.4</filepath>, der das DITA Open Toolkit enthält.</stepresult>
+      </step>
+      <step>
+        <cmd>Verschieben Sie den Ordner <filepath>DITA-OT1.5.4</filepath> an den gewünschten Ort im Dateisystem.</cmd>
+        <stepxmp>Beispiel: <filepath>C:\DITA-OT1.5.4</filepath>. Die folgenden Beispiele für Umgebungsvariablen beziehen sich auf diesen Pfad. Wenn Sie einen anderen Pfad wählen, passen Sie die Umgebungsvariablen entsprechend an.</stepxmp>
+      </step>
+      <step>
+        <cmd>Legen Sie eine System-Umgebungsvariable mit dem Namen <codeph>ANT_HOME</codeph> an, deren Inhalt der Pfad des ANT-Wurzelverzeichnisses ist.</cmd>
+        <stepxmp>Beispiel: <filepath>C:\DITA-OT1.5.4\tools\ant</filepath></stepxmp>
+      </step>
+      <step>
+        <cmd>Legen Sie eine System-Umgebungsvariable mit dem Namen <codeph>ANT_OPTS</codeph> mit folgendem Inhalt an: <codeph>-Xmx800m -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl</codeph></cmd>
+      </step>
+      <step>
+        <cmd>Legen Sie eine System-Umgebungsvariable mit dem Namen <codeph>CLASSPATH</codeph> an, deren Inhalt der Pfad zu verschiedenen benötigten Verzeichnissen und Dateien des Typs <codeph>jar</codeph> ist. Verwenden Sie hierbei die Pfade aus dem Beispiel, die Sie entsprechend anpassen, wenn das DITA Open Toolkit in einem anderen Verzeichnis liegt. Wenn die Umgebungsvariable <codeph>CLASSPATH</codeph> bereits existiert, hängen Sie den angegebenen Wert durch ein Semikolon getrennt an den vorhandenen Wert an.</cmd>
+        <stepxmp>Beispiel: <filepath>.;C:\DITA-OT1.5.4\lib\saxon\saxon9-xom.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-xpath.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-xqj.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-s9api.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-sql.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-dom4j.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-jdom.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9.jar;C:\DITA-OT1.5.4\lib\saxon\saxon9-dom.jar;C:\DITA-OT1.5.4\lib;C:\DITA-OT1.5.4\lib\dost.jar;C:\DITA-OT1.5.4\lib\resolver.jar;C:\DITA-OT1.5.4\lib\icu4j.jar;</filepath></stepxmp>
+      </step>
+      <step>
+        <cmd>Legen Sie eine System-Umgebungsvariable mit dem Namen <codeph>DITA_DIR</codeph> an, deren Inhalt der Pfad des DITA-Wurzelverzeichnisses ist.</cmd>
+        <stepxmp>Beispiel: <filepath>C:\DITA-OT1.5.4</filepath></stepxmp>
+      </step>
+      <step>
+        <cmd>Hängen Sie an die vorhandene Umgebungsvariable <codeph>PATH</codeph> durch ein Semikolon getrennt den folgenden Wert an: <filepath>%JAVA_HOME%\bin;C:\DITA-OT1.5.4\tools\ant\bin</filepath>.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsa4="http://dita.oasis-open.org/architecture/2005/" xsi:noNamespaceSchemaLocation="reference.xsd" id="A1" xml:lang="de-DE">
+  <title>Fehlerbehebung Cinnamon Desktop Client</title>
+  <refbody>
+    <table>
+      <tgroup cols="2">
+        <colspec colwidth="2*"/>
+        <colspec colwidth="2*"/>
+        <thead>
+          <row>
+            <entry>Symptom</entry>
+            <entry>Ursache und Behebung</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <p>Beim Starten des Cinnamon Desktop Client erscheint die Fehlermeldung: &quot;Die Datei oder Assembly &apos;&lt;Dateiname&gt;&apos; oder eine Abhängigkeit davon wurde nicht gefunden. Der Vorgang wird nicht unterstützt. (Ausnahme von HRESULT: 0x80131515)&quot;</p>
+              <p>Das Starten des Client ist nicht erfolgreich.</p>
+            </entry>
+            <entry>
+              <p>Unter bestimmten Voraussetzungen stuft Windows eine der Programmdateien des Cinnamon Desktop Client als unsicher ein und blockiert die Ausführung.</p>
+              <p>Diese Einstufung kann manuell aufgehoben werden.</p>
+              <p>Navigieren Sie zum Programmverzeichnis des Cinnamon Desktop Client und suchen Sie die in der Fehlermeldung genannte DLL.</p>
+              <p>Klicken Sie mit der rechten Maustaste auf die DLL und wählen Sie &quot;Eigenschaften.</p>
+              <p>Auf der Registerkarte &quot;Allgemein&quot; finden Sie unter &quot;Sicherheit&quot; den folgenden Eintrag:</p>
+              <cite>Diese Datei stammt von einem anderen Computer. Der Zugriff wurde aus Sicherheitsgründen eventuell geblockt.</cite>
+              <p>Klicken Sie auf die Schaltfläche &quot;Zulassen&quot;.</p>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <p>Beim Anmelden an einem Repository erscheint die Fehlermeldung: &quot;Fehler beim Laden der Applikation &apos;&lt;Name der Applikation&gt;&apos;&quot;</p>
+              <p>Die Anmeldung ist jedoch ansonsten erfolgreich.</p>
+            </entry>
+            <entry>
+              <p>Die häufigste Ursache für diesen Fehler ist das Fehlen des Checkout-Verzeichnisses im Dateisystem des Client.</p>
+              <p>Melden Sie sich vom Client ab und legen Sie das Checkout-Verzeichnis an. Siehe auch: <xref href="InstallingCinnamonClient.dita">Installation des Cinnamon Desktop Client</xref></p>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <p>Beim Anmelden an einem Repository erscheint die Fehlermeldung: &quot;417 Expectation Failed&quot;.</p>
+              <p>Die Anmeldung ist nicht erfolgreich.</p>
+            </entry>
+            <entry>
+              <p>Die häufigste Ursache für diesen Fehler ist ein Proxy-Server.</p>
+              <p>Schalten Sie den Proxy-Server im Internet Explorer aus.</p>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refbody>
+</reference>

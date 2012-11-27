@@ -1,0 +1,53 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><task xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsa4="http://dita.oasis-open.org/architecture/2005/" xsi:noNamespaceSchemaLocation="task.xsd" id="A1" xml:lang="de-DE">
+  <title>Installieren des Cinnamon Desktop Client</title>
+  <taskbody>
+    <prereq>
+      <p>Die folgenden Voraussetzungen müssen erfüllt sein, um den Cinnamon Desktop Client zu installieren:</p>
+      <ul>
+        <li>Es muss eine geeignete Version von Microsoft Windows installiert sein. Unterstützt werden Windows XP, Windows Vista und Windows 7, sowie die Server-Betriebssysteme Windows Server 2003 und Windows Server 2008.</li>
+        <li>Es muss Microsoft .net 4.0 installiert sein.</li>
+        <li>Wenn Sie XML-Daten (beispielsweise DITA) bearbeiten möchten, muss ein XML-Editor installiert sein. Es ist grundsätzlich jeder XML-Editor geeignet<fn>Es ist auch die Verwendung eines ASCII-Editors wie Notepad möglich, jedoch sehr unkomfortabel, da keine Validierung erfolgt.</fn>, jedoch ist es von Vorteil, einen XML-Editor zu verwenden, der Stylesheets für das verwendete Datenmodell (beispielsweise DITA) enthält, so dass die Daten übersichtlich visualisiert werden.</li>
+      </ul>
+    </prereq>
+    <steps>
+      <step>
+        <cmd>Entpacken Sie die Datei <filepath>Cinnamon-Client.zip</filepath>.</cmd>
+        <stepresult>Im Dateisystem befindet sich nun ein Ordner mit dem Namen <filepath>Cinnamon-Client</filepath>, der alle nötigen Client-Dateien enthält.</stepresult>
+      </step>
+      <step>
+        <cmd>Verschieben Sie den Ordner <filepath>Cinnamon-Client</filepath> an den gewünschten Ort im Dateisystem.</cmd>
+        <stepxmp>Beispiel: <filepath>C:\Programme\Cinnamon-Client</filepath></stepxmp>
+      </step>
+      <step>
+        <cmd>Bearbeiten Sie die Datei <filepath>Cinnamon-Client\Config\CinnamonDesktopClient.custom.config.xml</filepath> mit einem XML- oder ASCII-Editor.</cmd>
+      </step>
+      <step>
+        <cmd>Navigieren Sie zu dem Element <codeph>&lt;global_settings&gt;</codeph> am Ende der Datei, und suchen Sie dort das Element <codeph>&lt;local_root_path&gt;</codeph>.</cmd>
+        <substeps>
+          <substep>
+            <cmd>Wenn das Attribut <codeph>type</codeph> den Wert <codeph>mydocuments</codeph> hat, bezieht sich der Inhalt des Elements <codeph>&lt;local_root_path&gt;</codeph> auf den relativen Pfad innerhalb des Ordners <i>Meine Dokumente</i> im Dateisystem des Client. Legen Sie innerhalb dieses Ordners den angegebenen Ordner an, wenn er nicht bereits existiert. Legen Sie innerhalb dieses Ordners einen Ordner mit dem Namen <codeph>checkout</codeph> an.</cmd>
+          </substep>
+          <substep>
+            <cmd>Wenn das Attribut <codeph>type</codeph> den Wert <codeph>absolute</codeph> hat oder fehlt, bezieht sich der Inhalt des Elements <codeph>&lt;local_root_path&gt;</codeph> auf einen absoluten Pfad im Dateisystem des Client. Legen Sie den angegebenen Ordner an, wenn er nicht bereits existiert. Legen Sie innerhalb dieses Ordners einen Ordner mit dem Namen <codeph>checkout</codeph> an.</cmd>
+          </substep>
+        </substeps>
+      </step>
+      <step>
+        <cmd>Navigieren Sie zu dem Element <codeph>&lt;servers&gt;</codeph> am Ende der Datei.</cmd>
+      </step>
+      <step>
+        <cmd>Tragen Sie für jeden Server, auf den der Client zugreifen soll, ein Element<codeph>&lt;server&gt;</codeph> mit der URL des Servers als Kind des Elements <codeph>&lt;servers&gt;</codeph> in die Konfigurationsdatei ein. Fragen Sie Ihren Systemadministrator nach der URL des Servers.</cmd>
+        <stepxmp>Beispiel: <codeph>&lt;server name=&quot;foo&quot;&gt;http://bar:8080/cinnamon/cinnamon&lt;/server&gt;</codeph></stepxmp>
+      </step>
+      <step>
+        <cmd>Wenn der Server über eine SSL-Verschlüsselung und ein Zertifikat verfügt, installieren Sie das Zertifikat in Windows als <i>Vertrauenswürdige Stammzertifizierungsstelle</i>.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+  <related-links>
+    <link href="InstallingDITAOpenToolkit.dita">
+      <desc>Zum Transformieren von DITA-Bookmaps in verschiedene Zielformate müssen Sie das DITA Open Toolkit installieren.</desc>
+    </link>
+  </related-links>
+</task>

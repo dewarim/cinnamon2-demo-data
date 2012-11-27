@@ -1,0 +1,17 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><bookmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsa4="http://dita.oasis-open.org/architecture/2005/" xsi:noNamespaceSchemaLocation="bookmap.xsd" id="bookmap" xml:lang="de-DE">
+  <booktitle>
+    <mainbooktitle>Cinnamon: Installation und Administration</mainbooktitle>
+    <booktitlealt>Dokumentation für Administratoren<image placement="break" href="cinnamon_logo_2.200.png"/></booktitlealt>
+  </booktitle>
+  <frontmatter>
+    <booklists>
+      <toc/>
+    </booklists>
+  </frontmatter>
+  <chapter href="ChapterInstallingAdministeringCinnamonClient.dita">
+    <topicref href="InstallingDITAOpenToolkit.dita"/>
+    <topicref href="InstallingCinnamonClient.dita"/>
+    <topicref href="TroubleshootingCinnamonClient.dita"/>
+  </chapter>
+</bookmap>

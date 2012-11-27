@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This document was created with Syntext Serna Free. -->
+<reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="reference.xsd" id="A1" xml:lang="en-US">
+<title>Troubleshooting Cinnamon Desktop Client</title>
+<refbody>
+<table>
+<tgroup cols="2">
+<colspec colwidth="2*"/>
+<colspec colwidth="2*"/>
+<thead>
+<row>
+<entry>Behavior</entry>
+<entry>Cause and correction</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>
+<p>When starting Cinnamon Desktop Client, the system shows the error message: "Could not load file or assembly '&lt;filen ame&gt;' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)"</p>
+<p>Starting the client is not successful.</p>
+</entry>
+<entry>
+<p>Under certain conditions, Windows marks one of the program files in Windows Desktop Client as insecure and blocks execution.</p>
+<p>This setting can be manually disabled.</p>
+<p>Navigate to the progam directory of Cinnamon Desktop Client and find the DLL named in the error message.</p>
+<p>Right-click the DLL and select "Properties".</p>
+<p>On the tab "General" under "Security", there is the entry:</p>
+<cite>The file came from another computer and might be blocked to help protect this computer.  </cite>
+<p>Click the button "Unblock".</p>
+</entry>
+</row>
+<row>
+<entry>
+<p>Logging in to a repository, the system shows the error message: "Failure loading the application '&lt;applikation name&gt;'"</p>
+<p>Otherwise, the login is successful.</p>
+</entry>
+<entry>
+<p>The most common cause of this error is the missing checkout directory in the client file system.</p>
+<p>Log off the client and create the checkout directory. See also: <xref href="InstallingCinnamonClient.dita">Installing Cinnamon Desktop Client</xref>
+</p>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</refbody>
+</reference>

@@ -1,0 +1,58 @@
+<configuration>
+
+  <property name="logFolder" value="/home/cinnamon/cinnamon-system/global/log"/>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+	<layout class="ch.qos.logback.classic.PatternLayout">
+	  <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+	</layout>
+  </appender>
+<appender name="FILE" class="ch.qos.logback.core.FileAppender"> 
+ <File>${logFolder}/cinnamon.log</File> 
+  <Append>true</Append>  
+  <layout class="ch.qos.logback.classic.PatternLayout"> 
+   <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %L - %msg%n</Pattern> 
+    </layout>  
+    </appender> 
+
+<appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+  <!-- in the absence of the class attribute, it is assumed that the desired discriminator type is ch.qos.logback.classic.sift.MDCBasedDiscriminator --> 
+  <discriminator>  
+  	<Key>session</Key>
+   	<DefaultValue>unknown_session</DefaultValue>
+  </discriminator>
+  <sift>  
+  <appender name="FILE-${session}" class="ch.qos.logback.core.FileAppender">
+    <File>${logFolder}/${session}.log</File>
+    <Append>true</Append> 
+    <Layout class="ch.qos.logback.classic.PatternLayout">  
+  	  <Pattern>%-4relative [%thread] %-5level %mdc{user} %mdc{repo} %logger{35} %L - %msg%n</Pattern>
+     </Layout>
+    </appender>
+  </sift>
+</appender> 
+
+  <root level="DEBUG">
+    <appender-ref ref="SIFT" />
+    <appender-ref ref="FILE" />
+  </root>
+
+ <logger name="org.hibernate" level="WARN"/>
+ <logger name="org.hhibernate.cfg" level="WARN"/>
+ <logger name="org.hibernate.cfg.annotations.EntityBinder" level="WARN"/>
+ <logger name="org.hibernate.loader.entity.EntityLoader" level="WARN"/> 
+ <logger name="server.index" level="DEBUG"/>
+ <logger name="server.index.IndexItem" level="INFO"/>	
+ <logger name="server.helpers" level="DEBUG"/>
+ <logger name="server.data" level="INFO"/>
+ <logger name="server.trigger" level="DEBUG"/> 
+ <logger name="server.CmdInterpreter" level="DEBUG"/>
+ <logger name="server.CmnServer" level="DEBUG"/>
+ <logger name="utils.HibernateSession" level="DEBUG"/>
+ <logger name="server.dao.UserDAOHibernate" level="INFO"/>
+ 
+ <logger name="server.Session" level="DEBUG"/>
+ <logger name="server.User" level="INFO"/>
+ <logger name="server.data.ObjectSystemData" level="DEBUG"/>
+ <logger name="server.lifecycle.LifeCycleState" level="DEBUG"/>
+</configuration>

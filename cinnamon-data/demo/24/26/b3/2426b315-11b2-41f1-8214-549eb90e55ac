@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsa4="http://dita.oasis-open.org/architecture/2005/" xsi:noNamespaceSchemaLocation="reference.xsd" id="warnings">
+  <title>Warnhinweise</title>
+  <refbody>
+    <section>
+      <simpletable relcolwidth="">
+        <strow id="system_environment_variables">
+          <stentry>
+            <p>
+              <image href="warning.60169387.png" width="100" height="88"/>
+            </p>
+          </stentry>
+          <stentry>
+            <p>Fehlerhaftes Ändern der System-Umgebungsvariablen kann die Stabilität oder Funktion einiger oder aller Anwendungsprogramme beeinträchtigen.</p>
+            <p>Vergewissern Sie sich, dass vorhandene Einträge nicht beschädigt oder gelöscht werden.</p>
+          </stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

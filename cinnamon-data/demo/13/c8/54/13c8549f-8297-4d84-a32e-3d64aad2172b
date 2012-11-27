@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="task.xsd" id="A1">
+    <title>Title of the task</title>
+    <taskbody>
+        <p>Text</p>
+    </taskbody>
+</task>
