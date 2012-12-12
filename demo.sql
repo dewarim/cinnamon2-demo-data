@@ -595,6 +595,70 @@ CREATE TABLE users (
 
 ALTER TABLE public.users OWNER TO cinnamon;
 
+
+
+-- Table: links
+
+-- DROP TABLE links;
+
+CREATE TABLE links
+(
+  id bigint NOT NULL,
+  type character varying(127) NOT NULL,
+  resolver character varying(127) NOT NULL,
+  owner_id bigint NOT NULL,
+  acl_id bigint NOT NULL,
+  parent_id bigint NOT NULL,
+  folder_id bigint,
+  osd_id bigint,
+  CONSTRAINT links_pk PRIMARY KEY (id ),
+  CONSTRAINT links_folder_id_fk FOREIGN KEY (folder_id)
+      REFERENCES folders (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT links_osd_id_fk FOREIGN KEY (osd_id)
+      REFERENCES objects (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT links_owner_id_fk FOREIGN KEY (owner_id)
+      REFERENCES users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT links_parent_id_fk FOREIGN KEY (parent_id)
+      REFERENCES folders (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE links
+  OWNER TO cinnamon;
+
+-- Index: fki_links_folder_id_fk
+
+-- DROP INDEX fki_links_folder_id_fk;
+
+CREATE INDEX fki_links_folder_id_fk
+  ON links
+  USING btree
+  (folder_id );
+
+-- Index: fki_links_osd_id_fk
+
+-- DROP INDEX fki_links_osd_id_fk;
+
+CREATE INDEX fki_links_osd_id_fk
+  ON links
+  USING btree
+  (osd_id );
+
+-- Index: fki_links_parent_id_fk
+
+-- DROP INDEX fki_links_parent_id_fk;
+
+CREATE INDEX fki_links_parent_id_fk
+  ON links
+  USING btree
+  (parent_id );
+
+
 --
 -- Data for Name: aclentries; Type: TABLE DATA; Schema: public; Owner: cinnamon
 --
@@ -827,7 +891,7 @@ COPY group_users (id, obj_version, group_id, user_id) FROM stdin;
 --
 
 COPY groups (id, description, is_user, name, obj_version, parent_id) FROM stdin;
-5	Admin's personal group	t	_4_admin	2	\N
+5	Admin personal group	t	_4_admin	2	\N
 8	Superusers	f	_superusers	1	\N
 10	_everyone.description	f	_everyone	0	\N
 11	_owner.description	f	_owner	0	\N
@@ -1690,7 +1754,6 @@ COPY ui_languages (id, iso_code, obj_version) FROM stdin;
 COPY users (id, activated, description, fullname, name, obj_version, pwd, email, token, tokens_today, token_age, ui_language_id, account_expired, account_locked, password_expired, sudoer, sudoable) FROM stdin;
 4	t	Cinnamon Administrator	Administrator	admin	9	$2a$10$kxIabBaoj5SCSkaNO0oFTuPwaE96JRVUm2q9q.ZShV5duK.wJ/j0O		-	0	1970-01-01 00:00:00	51	f	f	f	f	f
 \.
-
 
 --
 -- Name: aclentries_pkey; Type: CONSTRAINT; Schema: public; Owner: cinnamon; Tablespace: 

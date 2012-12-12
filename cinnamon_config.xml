@@ -35,6 +35,7 @@
                 <apiClass>server.CmdInterpreter</apiClass>
                 <apiClass>server.extension.LifeCycleApi</apiClass>
                 <apiClass>server.extension.Translation</apiClass>
+                <apiClass>server.extension.LinkApi</apiClass>
         </apiClasses>
         <categories>
           <category>demo</category>
