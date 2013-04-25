@@ -20,7 +20,7 @@
         <password>xxxx</password>
   </mail>
 
-  <system-administrator>ingo.wiarda@horner-project.eu</system-administrator>
+  <system-administrator>ingo.wiarda@texolution.eu</system-administrator>
   <server-url>http://172.16.13.135:8080/cinnamon/cinnamon</server-url>
 
   <repositories>
