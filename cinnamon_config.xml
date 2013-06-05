@@ -6,8 +6,8 @@
   <startWorkflowServer>false</startWorkflowServer>
   <log_verbosity>OFF</log_verbosity>
  
-  <system_root>/home/cinnamon/cinnamon-system/</system_root>
-  <data_root>/home/cinnamon/cinnamon-data/</data_root>
+  <system_root>/opt/cinnamon/cinnamon-system/</system_root>
+  <data_root>/opt/cinnamon/cinnamon-data/</data_root>
   
   <!-- If you set the persistence_unit to "cinnamon_test", 
 	the server will drop the existing database and create a new one.
@@ -20,8 +20,8 @@
         <password>xxxx</password>
   </mail>
 
-  <system-administrator>ingo.wiarda@texolution.eu</system-administrator>
-  <server-url>http://172.16.13.135:8080/cinnamon/cinnamon</server-url>
+  <system-administrator>ingo_wiarda@dewarim.de</system-administrator>
+  <server-url>http://127.0.0.1:8080/cinnamon/cinnamon</server-url>
 
   <repositories>
         <repository>
@@ -63,7 +63,7 @@
  <db_type>mysql</db_type>
 -->
 
- <logback_configuration_path>/home/cinnamon/logback.xml</logback_configuration_path>
+ <logback_configuration_path>/opt/cinnamon/logback.xml</logback_configuration_path>
  <use_session_logging>true</use_session_logging>
 
   <workflow_server_username>WorkflowServer</workflow_server_username>
